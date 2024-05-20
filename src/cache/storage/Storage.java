@@ -1,0 +1,13 @@
+package cache.storage;
+
+import cache.exception.NotFoundException;
+import cache.exception.StorageFullException;
+
+public interface Storage<Key, Value> {
+    public void add(Key key, Value value) throws StorageFullException;
+
+    void remove(Key key) throws NotFoundException;
+
+    Value get(Key key) throws NotFoundException;
+    double getCurrentUsage();
+}
